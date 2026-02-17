@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春节 - 阖家团圆，新年新气象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+        }
+
+        /* 头部英雄区 */
+        .hero {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '春';
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 30px;
+        }
+
+        .hero .year {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 介绍区 */
+        .intro {
+            background: white;
+            padding: 60px 40px;
+            margin: -40px 20px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(211, 47, 47, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro h2 {
+            color: #d32f2f;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            color: #666;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 习俗区 */
+        .customs {
+            padding: 40px 20px;
+        }
+
+        .customs h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #d32f2f;
+            margin-bottom: 50px;
+        }
+
+        .customs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .custom-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #d32f2f;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(211, 47, 47, 0.2);
+        }
+
+        .custom-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .custom-card h3 {
+            color: #d32f2f;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .custom-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* 祝福区 */
+        .blessings {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            color: white;
+            padding: 80px 20px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .blessings h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .blessing-item {
+            font-size: 1.8em;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: inline-block;
+            min-width: 300px;
+            margin: 10px;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .intro h2,
+            .customs h2,
+            .blessings h2 {
+                font-size: 2em;
+            }
+
+            .intro {
+                padding: 40px 20px;
+                margin: -30px 10px 30px;
+            }
+
+            .customs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blessing-item {
+                font-size: 1.3em;
+                min-width: auto;
+                display: block;
+            }
+        }
+
+        /* 装饰元素 */
+        .lantern {
+            position: fixed;
+            font-size: 40px;
+            animation: swing 3s ease-in-out infinite;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .lantern-left {
+            top: 100px;
+            left: 20px;
+        }
+
+        .lantern-right {
+            top: 100px;
+            right: 20px;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 装饰灯笼 -->
+    <div class="lantern lantern-left">🏮</div>
+    <div class="lantern lantern-right">🏮</div>
+
+    <!-- 头部英雄区 -->
+    <section class="hero">
+        <h1>🎊 春节快乐 🎊</h1>
+        <p>阖家团圆，共庆新春佳节</p>
+        <div class="year">甲辰龙年 · 2024</div>
+    </section>
+
+    <!-- 介绍区 -->
+    <div class="container">
+        <section class="intro">
+            <h2>春节的由来</h2>
+            <p>
+                春节是中华民族最隆重的传统佳节，已有四千多年的历史。它标志着农历新年的开始，象征着辞旧迎新、阖家团圆。
+                每年农历正月初一，家家户户张灯结彩，喜迎新春。春节期间，人们走亲访友，互致祝福，共同祈愿来年幸福安康、万事如意。
+                这个传统节日不仅是中国文化的重要组成部分，更承载着中华民族对美好生活的向往和对家庭团聚的珍视。
+            </p>
+        </section>
+
+        <!-- 传统习俗 -->
+        <section class="customs">
+            <h2>传统习俗</h2>
+            <div class="customs-grid">
+                <div class="custom-card">
+                    <div class="icon">🧧</div>
+                    <h3>发压岁钱</h3>
+                    <p>长辈给晚辈红包，寓意祝福平安，压住邪祟，保佑孩子健康成长。</p>
+                </div>
+
+                <div class="custom-card">
+                    <div class="icon">🍜</div>
+                    <h3>吃年夜饭</h3>
+                    <p>除夕夜全家团聚共进晚餐，象征团圆美满，是一年中最重要的一餐。</p>
+                </div>
+
+                <div class="custom-card">
+                    <div class="icon">🎆</div>
+                    <h3>放鞭炮</h3>
+                    <p>燃放烟花爆竹驱邪避凶，营造喜庆热闹的节日氛围。</p>
+                </div>
+
+                <div class="custom-card">
+                    <div class="icon">🏮</div>
+                    <h3>贴春联福字</h3>
+                    <p>在门上贴春联和福字，表达对新年的美好祝愿和期盼。</p>
+                </div>
+
+                <div class="custom-card">
+                    <div class="icon">🙏</div>
+                    <h3>拜年</h3>
+                    <p>走亲访友，互相拜年祝福，增进亲友间的感情联系。</p>
+                </div>
+
+                <div class="custom-card">
+                    <div class="icon">🌙</div>
+                    <h3>守岁</h3>
+                    <p>除夕夜守岁迎新，象征珍惜时光，祈求长寿平安。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 祝福区 -->
+    <section class="blessings">
+        <h2>新春祝福</h2>
+        <div class="blessing-item">🎉 恭喜发财，万事如意！</div>
+        <div class="blessing-item">🌸 新年快乐，阖家幸福！</div>
+        <div class="blessing-item">🐉 龙年大吉，心想事成！</div>
+        <div class="blessing-item">✨ 福星高照，好运连连！</div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>🏮 春节传统文化展示网站 🏮</p>
+        <p>愿您在新的一年里身体健康，工作顺利，家庭美满！</p>
+        <p style="margin-top: 20px; opacity: 0.7;">© 2024 春节主题网站</p>
+    </footer>
+
+    <script>
+        // 简单的新年祝福动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const blessings = document.querySelectorAll('.blessing-item');
+            blessings.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        item.style.transition = 'all 0.6s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
